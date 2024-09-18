@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Free MC Server</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <style>
+        body {
+            background-color: #202225;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #2f3136;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form input {
+            background-color: #202225;
+            border: 1px solid #7289da; /* Color del borde actualizado */
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+            color: white;
+            outline: none;
+        }
+
+        form input::placeholder {
+            color: #bbb;
+        }
+
+        form button {
+            background-color: #7289da; /* Color del botón actualizado */
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        form button:hover {
+            background-color: #5b6eae; /* Color del botón en hover */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>FREE MC SERVER</h1>
+        <form id="registerForm">
+            <input type="text" id="reg-username" placeholder="Username" required>
+            <input type="password" id="reg-password" placeholder="Password" required>
+            <input type="password" id="reg-confirm-password" placeholder="Confirm Password" required>
+            <input type="email" id="reg-email" placeholder="Email" required>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+    <script src="../assets/js/auth.js"></script>
+    <script src="../assets/js/validation.js"></script>
+</body>
+</html>

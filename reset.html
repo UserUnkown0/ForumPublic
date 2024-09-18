@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Password - Free MC Server</title>
+    <style>
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #202225; /* Fondo oscuro */
+            color: white; /* Texto blanco */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #2f3136; /* Fondo del contenedor */
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        /* Estilo del título */
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        /* Estilo del formulario */
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input[type="email"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #7289da; /* Borde actualizado */
+            border-radius: 5px;
+            margin-bottom: 20px;
+            background-color: #202225; /* Fondo oscuro */
+            color: white;
+        }
+
+        input[type="email"]::placeholder {
+            color: #95a5a6;
+        }
+
+        button[type="submit"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #7289da; /* Color del botón actualizado */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #5b6eae; /* Color de hover del botón */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>SERVER</h1>
+        <form id="resetForm">
+            <input type="email" id="reset-email" placeholder="Email" required>
+            <button type="submit">Reset Password</button>
+        </form>
+    </div>
+    <script src="../assets/js/auth.js"></script>
+</body>
+</html>
