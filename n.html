@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discusión general en Infinity Galaxy">
+    <title>Discusión General - Infinity Galaxy</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #202225;
+            color: white;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #2f3136;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            border-radius: 50%;
+            margin-right: 10px;
+            width: 50px;
+        }
+
+        .logo h1 {
+            font-size: 24px;
+            color: #7289da;
+        }
+
+        nav {
+            display: flex;
+            flex-grow: 1;
+            justify-content: center;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #7289da;
+        }
+
+        .language-login {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .language-login .language {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .language-login .language img {
+            width: 25px;
+            border-radius: 50%;
+        }
+
+        .login-btn a {
+            text-decoration: none;
+            color: white;
+            background-color: #7289da;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-btn a:hover {
+            background-color: #677bc4;
+        }
+
+        .main-content {
+            display: flex;
+            justify-content: space-between;
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+        }
+
+        .container, .recent-comments {
+            background-color: #2f3136;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .container {
+            width: 65%;
+        }
+
+        .recent-comments {
+            width: 30%;
+            height: fit-content;
+        }
+
+        .recent-comments h3 {
+            color: #1abc9c;
+            margin-bottom: 10px;
+        }
+
+        .thread {
+            margin-bottom: 20px;
+        }
+
+        .thread h2 {
+            color: #1abc9c;
+            margin-bottom: 10px;
+        }
+
+        .comment, .recent-comment {
+            background-color: #3b3e45;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            position: relative;
+        }
+
+        .comment h3 {
+            margin: 0 0 5px;
+            font-size: 16px;
+            color: #7289da;
+        }
+
+        .comment p {
+            margin: 0;
+        }
+
+        .comment-date {
+            font-size: 12px;
+            color: #95a5a6;
+        }
+
+        .comment-form {
+            background-color: #3b3e45;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .comment-form textarea {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            background-color: #2f3136;
+            color: white;
+            resize: none;
+            height: 100px;
+            outline: none;
+        }
+
+        .comment-form button {
+            background-color: #7289da;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .comment-form button:hover {
+            background-color: #5b6eae;
+        }
+
+        .footer {
+            background-color: #2f3136;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        .footer p {
+            margin: 0;
+            color: white;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .pagination button {
+            background-color: #7289da;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .pagination button:hover {
+            background-color: #677bc4;
+        }
+
+        #page-info {
+            font-size: 14px;
+            color: white;
+        }
+
+        .no-comments {
+            color: #95a5a6;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .heart-react {
+            cursor: pointer;
+            font-size: 20px;
+            color: #ff0000;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+
+        .heart-react.active {
+            color: #ff9999;
+        }
+
+        .reaction-count {
+            font-size: 14px;
+            color: #ff9999;
+            position: absolute;
+            right: 40px;
+            top: 15px;
+        }
+
+        .highlight {
+            border: 2px solid #7289da;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="infinitygalaxy.ico" alt="Logo">
+            <h1>🪐𝙄𝙣𝙛𝙞𝙣𝙞𝙩𝙮 𝙂𝙖𝙡𝙖𝙭𝙮 ✨</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li><a href="https://discord.gg/fuwrNKaJBC"><i class="fab fa-discord"></i> Join My Server</a></li>
+                <li><a href="#"><i class="fas fa-heart"></i> Status</a></li>
+                <li><a href="#"><i class="fas fa-bars"></i> Commands</a></li>
+                <li><a href="#"><i class="fas fa-gem"></i> Premium</a></li>
+            </ul>
+        </nav>
+        <div class="language-login">
+            <div class="language">
+                <img src="https://cdn-icons-png.flaticon.com/512/197/197484.png" alt="Language Flag">
+                <span>EN</span>
+            </div>
+            <div class="login-btn">
+                <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a></div>
+        </div>
+    </header>
+
+    <div class="main-content">
+        <!-- Contenedor principal de comentarios -->
+        <div class="container">
+            <div class="thread">
+                <h2>Discusión General</h2>
+                <p id="no-comments" class="no-comments">No existen comentarios aún.</p>
+                <!-- Aquí se agregarán los comentarios -->
+                <div id="comments-container"></div>
+            </div>
+
+            <!-- Contenedor para la paginación -->
+            <div class="pagination">
+                <button id="prev-page">Anterior</button>
+                <span id="page-info">Página 1 de 1</span>
+                <button id="next-page">Siguiente</button>
+            </div>
+
+            <!-- Formulario para agregar un nuevo comentario -->
+            <div class="comment-form">
+                <h3>Agregar un comentario:</h3>
+                <textarea id="comment-input" placeholder="Escribe tu comentario aquí..." required></textarea>
+                <button id="submit-comment">Enviar comentario</button>
+            </div>
+        </div>
+
+        <!-- Contenedor de comentarios recientes -->
+        <div class="recent-comments">
+            <h3>Comentarios Recientes</h3>
+            <div id="recent-comments-container"></div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Infinity Galaxy - Todos los derechos reservados.</p>
+    </div>
+
+    <script>
+        const commentsContainer = document.getElementById('comments-container');
+        const recentCommentsContainer = document.getElementById('recent-comments-container');
+        const commentInput = document.getElementById('comment-input');
+        const submitCommentButton = document.getElementById('submit-comment');
+        const prevPageButton = document.getElementById('prev-page');
+        const nextPageButton = document.getElementById('next-page');
+        const pageInfo = document.getElementById('page-info');
+        const noCommentsMessage = document.getElementById('no-comments');
+
+        let comments = [];
+        let currentPage = 1;
+        const commentsPerPage = 6;
+
+        // Función para renderizar comentarios
+        function renderComments() {
+            commentsContainer.innerHTML = '';
+            const startIndex = (currentPage - 1) * commentsPerPage;
+            const endIndex = startIndex + commentsPerPage;
+            const commentsToShow = comments.slice(startIndex, endIndex);
+
+            commentsToShow.forEach(comment => {
+                const commentElement = document.createElement('div');
+                commentElement.classList.add('comment');
+                commentElement.id = `comment-${comment.id}`;
+                commentElement.innerHTML = `
+                    <h3>${comment.username}</h3>
+                    <p>${comment.text}</p>
+                    <div class="comment-date">${comment.date}</div>
+                    <div class="heart-react ${comment.hasReacted ? 'active' : ''}" data-id="${comment.id}">&#10084;</div>
+                    <div class="reaction-count" data-id="${comment.id}">${comment.reactions}</div>
+                `;
+                commentsContainer.appendChild(commentElement);
+            });
+
+            pageInfo.textContent = `Página ${currentPage} de ${Math.ceil(comments.length / commentsPerPage)}`;
+            prevPageButton.disabled = currentPage === 1;
+            nextPageButton.disabled = currentPage === Math.ceil(comments.length / commentsPerPage);
+
+            // Mostrar u ocultar mensaje de "No existen comentarios aún"
+            noCommentsMessage.style.display = comments.length === 0 ? 'block' : 'none';
+        }
+
+        // Función para agregar un comentario
+        function addComment(username, text) {
+            const newComment = {
+                id: comments.length + 1,
+                username,
+                text,
+                date: new Date().toLocaleDateString(),
+                reactions: 0,
+                hasReacted: false
+            };
+            comments.push(newComment); // Agregar al final del array
+            renderComments();
+            renderRecentComments();
+        }
+
+        // Función para renderizar comentarios recientes
+        function renderRecentComments() {
+            recentCommentsContainer.innerHTML = '';
+            const recentComments = comments.slice(-5).reverse(); // Mostrar los más recientes
+
+            recentComments.forEach(comment => {
+                const recentCommentElement = document.createElement('div');
+                recentCommentElement.classList.add('recent-comment');
+                recentCommentElement.innerHTML = `
+                    <h4>${comment.username}</h4>
+                    <p>${comment.text}</p>
+                    <div class="comment-date">${comment.date}</div>
+                `;
+                // Agregar funcionalidad para ir al comentario
+                recentCommentElement.addEventListener('click', () => {
+                    const commentElement = document.getElementById(`comment-${comment.id}`);
+                    if (commentElement) {
+                        commentElement.classList.add('highlight');
+                        setTimeout(() => {
+                            commentElement.classList.remove('highlight');
+                        }, 2000); // El resaltado desaparece después de 2 segundos
+                    }
+                });
+                recentCommentsContainer.appendChild(recentCommentElement);
+            });
+        }
+
+        // Manejar el envío de un nuevo comentario
+        submitCommentButton.addEventListener('click', () => {
+            const username = 'Usuario'; // Aquí deberías usar el nombre del usuario logueado
+            const text = commentInput.value.trim();
+
+            if (text) {
+                addComment(username, text);
+                commentInput.value = '';
+                currentPage = Math.ceil(comments.length / commentsPerPage); // Redirigir a la última página
+                renderComments();
+            }
+        });
+
+        // Manejar la paginación
+        prevPageButton.addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage--;
+                renderComments();
+            }
+        });
+
+        nextPageButton.addEventListener('click', () => {
+            if (currentPage < Math.ceil(comments.length / commentsPerPage)) {
+                currentPage++;
+                renderComments();
+            }
+        });
+
+        // Manejar las reacciones con corazón
+        commentsContainer.addEventListener('click', (e) => {
+            if (e.target.classList.contains('heart-react')) {
+                const commentId = e.target.dataset.id;
+                const comment = comments.find(c => c.id == commentId);
+
+                if (comment) {
+                    if (!comment.hasReacted) {
+                        comment.reactions++;
+                        comment.hasReacted = true;
+                    } else {
+                        comment.reactions--;
+                        comment.hasReacted = false;
+                    }
+                    renderComments();
+                }
+            }
+        });
+
+        // Inicializar comentarios (vacío)
+        renderComments();
+        renderRecentComments();
+    </script>
+</body>
+</html>
